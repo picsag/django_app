@@ -4,7 +4,9 @@ LABEL author="Petru Radu"
 LABEL description="Postgres Image for demo"
 LABEL version="1.0"
 
-COPY *.sql /docker-entrypoint-initdb.d/
+COPY init.sql /docker-entrypoint-initdb.d/
 
-# Expose the default PostgreSQL port (optional)
+ENV POSTGRES_HOST_AUTH_METHOD trust
+
 EXPOSE 5432
+
