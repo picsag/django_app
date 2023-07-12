@@ -14,21 +14,19 @@ from pathlib import Path
 import os
 import environ
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-environ.Env.read_env(os.path.join(BASE_DIR.parent, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = env('SECRET_KEY')
 
 ALLOWED_HOSTS = ['*']
 
-
+DEBUG = env('DEBUG')
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
+        'PASSWORD': env('DB_PASS'),
         'HOST': env('DB_HOST'),
         'PORT': env('DB_PORT'),
     }

@@ -2,8 +2,8 @@ from django.db import migrations
 from django.db.migrations.operations import RunSQL
 from rest_framework import generics, status
 from rest_framework.response import Response
-from models import TableModel
-from serializers import TableModelSerializer
+from .models import TableModel
+from .serializers import TableModelSerializer
 from django.db import models
 
 
