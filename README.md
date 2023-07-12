@@ -33,5 +33,7 @@ docker logs your_container_name
 9. Update the Django app's database configuration (`settings.py`) with the appropriate PostgreSQL host, port, database name, username, and password.
 
 10. Start your Django app and test the database connection to ensure it is working properly.
+<br><br>
+<img src="./django_test.jpg">
 
 
